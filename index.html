@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Windmill Windup Amsterdam 2013</title>
+		<link rel="stylesheet" href="styles/reset.css">
+		<link rel="stylesheet" href="styles/app.css">
+	</head>
+	<body>
+
+		<header>
+			<a href="#/">Windmill Windup 2013</a>
+		</header>
+
+		<nav>
+			<ul>
+				<li><a href="#/">Home</a></li>
+				<li><a href="#/schedule">Schedule</a></li>
+				<li><a href="#/ranking">Ranking</a></li>
+			</ul>
+		</nav>
+
+		<div id="content">
+		</div>
+
+		<script id="page-general" type="text/x-handlebars-template">
+			<section>
+				<header id="home">
+					About Windmill Windup
+				</header>
+				<article>
+					<p>
+					The Windmill Windup is a yearly ultimate frisbee tournament held in Amsterdam, comprised of three divisions of play (open, women's and mixed). The three day event is loaded with ultimate frisbee action and off the field antics, resulting in an unforgettable weekend of intense sport and constant fun.
+					</p>
+					<p>
+						<iframe class="video" src="//player.vimeo.com/video/10879232" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</p>
+					<h2>7 rules of ultimate frisbee</h2>
+					<p>
+					The game of Ultimate frisbee is played by the following rules:
+					</p>
+					<p><ol>
+						<li>7 players on the line</li>
+						<li>First team to 15 wins</li>
+						<li>Teams switch sides after each score</li>
+						<li>Half time once a team scores 8 goals</li>
+						<li>Players may not run with the disc</li>
+						<li>Players must pass the disc within 10 seconds</li>
+						<li>Games are self officiating</li>
+					</p></ol>
+					<h2>Final ranking poule day</h2>
+					<p>
+					Teams will play a round-robin in four pools. The best 2 teams of each pool play a bracket for the win. The final ranking of the pool are based on:
+					</p>
+					<ol>
+						<li>Total of games won</li>
+						<li>[if teams are equal] Result of games against eachother</li>
+						<li>[if teams are equal] Total of scored points - lost points</li>
+						<li>[if teams are equal] Flip a coin</li>
+					</ol>
+				</article>
+			</section>
+		</script>
+
+		<script id="page-schedule" type="text/x-handlebars-template">
+			<section>
+				<header id="schedule">
+					Schedule
+				</header>
+					<article>
+						<h2>Pool A</h2>
+					</article>
+					<div id="top-row">
+						<div class="top-column-33">
+							Team 1
+						</div>
+						<div class="top-column-33">
+							Results
+						</div>
+						<div class="top-column-33">
+							Team 2
+						</div>
+					</div>
+					{{#each objects}}
+					<div class="inter-row">
+						{{start_time}}
+					</div>
+					<div class="row">
+						<div class="column-33">
+							{{#with team_1}}
+								{{name}}
+							{{/with}}
+						</div>
+						<div class="column-33">
+							{{team_1_score}} - {{team_2_score}}
+						</div>
+						<div class="column-33">
+							{{#with team_2}}
+								{{name}}
+							{{/with}}
+						</div>
+					</div>
+					{{/each}}
+			</section>
+		</script>
+
+		<script id="page-gamescore" type="text/x-handlebars-template">
+			<section>
+				<header id="schedule">
+					Game score
+				</header>
+					<article>
+						<h2>{{#with team_1}}
+								{{name}}
+							{{/with}} vs
+							{{#with team_2}}
+								{{name}}
+							{{/with}}
+						</h2>
+					</article>
+					<article>
+						{{team_1_score}} - {{team_2_score}}
+					</article>
+			</section>
+		</script>
+
+		<script id="page-ranking" type="text/x-handlebars-template">
+			<section>
+				<header id="rankings">
+					Rankings
+				</header>
+					<article>
+						<h2>Pool A</h2>
+					</article>
+					<div id="top-row">
+						<div class="top-column-40">
+							Team name
+						</div>
+						<div class="top-column-20">
+							Plays
+						</div>
+						<div class="top-column-20">
+							Win
+						</div>
+						<div class="top-column-20">
+							Loss
+						</div>
+					</div>
+					{{#each standings}}
+						<div class="row">
+							<div class="column-40">
+								{{#with team}}
+									{{name}}
+								{{/with}}
+							</div>
+							<div class="column-20">
+								{{games_played}}
+							</div>
+							<div class="column-20">
+								{{wins}}
+							</div>
+							<div class="column-20">
+								{{losses}}
+							</div>
+						</div>
+					{{/each}}
+			</section>
+		</script>
+
+		<!-- include vendors -->
+		<script src="scripts/vendor/routie.js"></script>
+		<script src="scripts/vendor/handlebars.js"></script>
+		<script src="scripts/vendor/microajax.minified.js"></script>
+		<script src="scripts/vendor/qwest-0.4.2.min.js"></script>
+
+		<!-- include scripts -->
+		<script src="scripts/app.js"></script>
+		<script src="scripts/template.js"></script>
+		<script src="scripts/schedulecontroller.js"></script>
+		<script src="scripts/rankingcontroller.js"></script>
+		<script src="scripts/gamescorecontroller.js"></script>
+		
+	</body>
+</html>
