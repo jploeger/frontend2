@@ -63,26 +63,13 @@
 			</section>
 		</script>
 
-		<script id="page-pools" type="text/x-handlebars-template">
-			<section>
-				<header id="pools">
-					Pools
-				</header>
-				{{#each objects}}
-					<article class="main-article" onClick="App.ScheduleController.getGames('{{id}}');">
-						<h2>Pool {{name}}</h2>
-					</article>
-				{{/each}}
-			</section>
-		</script>
-
 		<script id="page-schedule" type="text/x-handlebars-template">
 			<section>
 				<header id="schedule">
 					Schedule
 				</header>
-				<article class="main-article">
-					<h2>Pool A</h2>
+				<article>
+					<h2>Pool {{name}}</h2>
 				</article>
 				<div id="top-row">
 					<div class="top-column-33">
@@ -96,22 +83,24 @@
 					</div>
 				</div>
 				{{#each objects}}
-					<div class="inter-row" onClick="App.GameScoreController.renderGame('{{id}}');">
-						{{start_time}}
-					</div>
-					<div class="row" onClick="App.GameScoreController.renderGame('{{id}}');">
-						<div class="column-33">
-							{{#with team_1}}
-								{{name}}
-							{{/with}}
+					<div onClick="App.GameScoreController.renderGame('{{id}}');">
+						<div class="inter-row">
+							{{start_time}}
 						</div>
-						<div class="column-33">
-							{{team_1_score}} - {{team_2_score}}
-						</div>
-						<div class="column-33">
-							{{#with team_2}}
-								{{name}}
-							{{/with}}
+						<div class="row">
+							<div class="column-33">
+								{{#with team_1}}
+									{{name}}
+								{{/with}}
+							</div>
+							<div class="column-33">
+								{{team_1_score}} - {{team_2_score}}
+							</div>
+							<div class="column-33">
+								{{#with team_2}}
+									{{name}}
+								{{/with}}
+							</div>
 						</div>
 					</div>
 				{{/each}}
@@ -123,16 +112,16 @@
 				<header id="schedule">
 					Game score
 				</header>
-					<article class="main-article">
+					<article>
 						<h2>{{#with team_1}}
 								{{name}}
-							{{/with}} <span>VS</span>
+							{{/with}} vs
 							{{#with team_2}}
 								{{name}}
 							{{/with}}
 						</h2>
 					</article>
-					<article class="main-article">
+					<article>
 						<form>
 							<input type="number" id="team1Score" value="{{team_1_score}}">
 							<input type="number" id="team2Score" value="{{team_2_score}}">
@@ -146,7 +135,7 @@
 		<script id="page-pools" type="text/x-handlebars-template">
 			<section>
 				<header id="pools">
-				Poolools
+					Pools
 				</header>
 				{{#each objects}}
 				<article class="main-article" onClick="App.ScheduleController.getGames('{{id}}');">
@@ -161,50 +150,41 @@
 				<header id="rankings">
 					Rankings
 				</header>
-<<<<<<< HEAD
 					<article>
-						<h2>Pool</h2>
+						<h2>Pool {{name}}</h2>
 					</article>
 					<div id="top-row">
 						<div class="top-column-40">
 							Team name
-=======
-				<article class="main-article">
-					<h2>Pool A</h2>
-				</article>
-				<div id="top-row">
-					<div class="top-column-40">
-						Team name
-					</div>
-					<div class="top-column-20">
-						Plays
-					</div>
-					<div class="top-column-20">
-						Win
-					</div>
-					<div class="top-column-20">
-						Loss
-					</div>
-				</div>
-				{{#each standings}}
-					<div class="row">
-						<div class="column-40">
-							{{#with team}}
-								{{name}}
-							{{/with}}
->>>>>>> 7dda6e510fb8f69879476205818c9e6381e32672
 						</div>
-						<div class="column-20">
-							{{games_played}}
+						<div class="top-column-20">
+							Plays
 						</div>
-						<div class="column-20">
-							{{wins}}
+						<div class="top-column-20">
+							Win
 						</div>
-						<div class="column-20">
-							{{losses}}
+						<div class="top-column-20">
+							Loss
 						</div>
 					</div>
-				{{/each}}
+					{{#each standings}}
+						<div class="row">
+							<div class="column-40">
+								{{#with team}}
+									{{name}}
+								{{/with}}
+							</div>
+							<div class="column-20">
+								{{games_played}}
+							</div>
+							<div class="column-20">
+								{{wins}}
+							</div>
+							<div class="column-20">
+								{{losses}}
+							</div>
+						</div>
+					{{/each}}
 			</section>
 		</script>
 
