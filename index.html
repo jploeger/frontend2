@@ -16,7 +16,7 @@
 		<nav>
 			<ul>
 				<li><a href="#/">Home</a></li>
-				<li><a href="#/schedule">Schedule</a></li>
+				<li><a href="#/pools">Pools</a></li>
 				<li><a href="#/ranking">Ranking</a></li>
 			</ul>
 		</nav>
@@ -130,13 +130,26 @@
 			</section>
 		</script>
 
+		<script id="page-pools" type="text/x-handlebars-template">
+			<section>
+				<header id="pools">
+				Poolools
+				</header>
+				{{#each objects}}
+				<article class="main-article" onClick="App.ScheduleController.getGames('{{id}}');">
+					<h2>Pool {{name}}</h2>
+				</article>
+				{{/each}}
+			</section>
+		</script>
+
 		<script id="page-ranking" type="text/x-handlebars-template">
 			<section>
 				<header id="rankings">
 					Rankings
 				</header>
 					<article>
-						<h2>Pool A</h2>
+						<h2>Pool</h2>
 					</article>
 					<div id="top-row">
 						<div class="top-column-40">

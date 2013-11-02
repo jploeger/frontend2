@@ -19,7 +19,7 @@ var App = App || {};
 			})
 			.success(function ( data ) {
 
-				App.Template.render('page-schedule', data);
+				App.Template.render('page-pools', data);
 
 				//	Loading
 				document.getElementById('body').classList.remove("loading");	
