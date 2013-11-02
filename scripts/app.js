@@ -17,6 +17,9 @@
 				'/schedule': function() {
 					App.ScheduleController.getGames();
 				},
+				'/pools': function() {
+					App.ScheduleController.getPools();
+				},
 				'/ranking': function() {
 					App.RankingController.index();
 				},
