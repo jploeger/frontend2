@@ -161,6 +161,7 @@ section header {
 	line-height: none;
 }
 article {
+	float: left;
 	width: 100%;
 	padding: 5%;
 	border-bottom: 1px solid #EEE;

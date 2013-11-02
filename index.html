@@ -31,27 +31,33 @@
 				</header>
 				<article>
 					<p>
-					The Windmill Windup is a yearly ultimate frisbee tournament held in Amsterdam, comprised of three divisions of play (open, women&apos;s and mixed). The three day event is loaded with ultimate frisbee action and off the field antics, resulting in an unforgettable weekend of intense sport and constant fun.
+						The Windmill Windup is a yearly ultimate frisbee tournament held in Amsterdam, comprised of three divisions of play (open, women&apos;s and mixed). The three day event is loaded with ultimate frisbee action and off the field antics, resulting in an unforgettable weekend of intense sport and constant fun.
 					</p>
 					<p>
 						<iframe class="video" src="//player.vimeo.com/video/10879232" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					</p>
-					<h2>7 rules of ultimate frisbee</h2>
+					<h2>
+						7 rules of ultimate frisbee
+					</h2>
 					<p>
-					The game of Ultimate frisbee is played by the following rules:
+						The game of Ultimate frisbee is played by the following rules:
 					</p>
-					<p><ol>
-						<li>7 players on the line</li>
-						<li>First team to 15 wins</li>
-						<li>Teams switch sides after each score</li>
-						<li>Half time once a team scores 8 goals</li>
-						<li>Players may not run with the disc</li>
-						<li>Players must pass the disc within 10 seconds</li>
-						<li>Games are self officiating</li>
-					</p></ol>
-					<h2>Final ranking poule day</h2>
 					<p>
-					Teams will play a round-robin in four pools. The best 2 teams of each pool play a bracket for the win. The final ranking of the pool are based on:
+						<ol>
+							<li>7 players on the line</li>
+							<li>First team to 15 wins</li>
+							<li>Teams switch sides after each score</li>
+							<li>Half time once a team scores 8 goals</li>
+							<li>Players may not run with the disc</li>
+							<li>Players must pass the disc within 10 seconds</li>
+							<li>Games are self officiating</li>
+						</p>
+					</ol>
+					<h2>
+						Final ranking poule day
+					</h2>
+					<p>
+						Teams will play a round-robin in four pools. The best 2 teams of each pool play a bracket for the win. The final ranking of the pool are based on:
 					</p>
 					<ol>
 						<li>Total of games won</li>
@@ -150,41 +156,45 @@
 				<header id="rankings">
 					Rankings
 				</header>
-					<article>
-						<h2>Pool {{name}}</h2>
-					</article>
-					<div id="top-row">
-						<div class="top-column-40">
-							Team name
-						</div>
-						<div class="top-column-20">
-							Plays
-						</div>
-						<div class="top-column-20">
-							Win
-						</div>
-						<div class="top-column-20">
-							Loss
-						</div>
-					</div>
-					{{#each standings}}
-						<div class="row">
-							<div class="column-40">
-								{{#with team}}
-									{{name}}
-								{{/with}}
+				<article>
+					{{#each objects}}
+						<header>
+							<h2>Pool {{name}}</h2>
+						</header>
+						<div id="top-row">
+							<div class="top-column-40">
+								Team name
 							</div>
-							<div class="column-20">
-								{{games_played}}
+							<div class="top-column-20">
+								Plays
 							</div>
-							<div class="column-20">
-								{{wins}}
+							<div class="top-column-20">
+								Win
 							</div>
-							<div class="column-20">
-								{{losses}}
+							<div class="top-column-20">
+								Loss
 							</div>
 						</div>
+						{{#each standings}}
+							<div class="row">
+								<div class="column-40">
+									{{#with team}}
+										{{name}}
+									{{/with}}
+								</div>
+								<div class="column-20">
+									{{games_played}}
+								</div>
+								<div class="column-20">
+									{{wins}}
+								</div>
+								<div class="column-20">
+									{{losses}}
+								</div>
+							</div>
+						{{/each}}
 					{{/each}}
+				</article>
 			</section>
 		</script>
 
