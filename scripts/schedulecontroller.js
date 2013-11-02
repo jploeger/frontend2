@@ -41,8 +41,6 @@ var App = App || {};
 			})
 			.success(function ( data ) {
 
-				var d = new Date(dateString);
-
 				App.Template.render('page-schedule', data);
 
 				//	Loading
