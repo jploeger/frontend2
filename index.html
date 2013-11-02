@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="styles/reset.css">
 		<link rel="stylesheet" href="styles/app.css">
 	</head>
-	<body>
+	<body id="body">
 
 		<header>
 			<a href="#/">Windmill Windup 2013</a>
@@ -31,7 +31,7 @@
 				</header>
 				<article>
 					<p>
-					The Windmill Windup is a yearly ultimate frisbee tournament held in Amsterdam, comprised of three divisions of play (open, women's and mixed). The three day event is loaded with ultimate frisbee action and off the field antics, resulting in an unforgettable weekend of intense sport and constant fun.
+					The Windmill Windup is a yearly ultimate frisbee tournament held in Amsterdam, comprised of three divisions of play (open, women&apos;s and mixed). The three day event is loaded with ultimate frisbee action and off the field antics, resulting in an unforgettable weekend of intense sport and constant fun.
 					</p>
 					<p>
 						<iframe class="video" src="//player.vimeo.com/video/10879232" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -68,22 +68,22 @@
 				<header id="schedule">
 					Schedule
 				</header>
-					<article>
-						<h2>Pool A</h2>
-					</article>
-					<div id="top-row">
-						<div class="top-column-33">
-							Team 1
-						</div>
-						<div class="top-column-33">
-							Results
-						</div>
-						<div class="top-column-33">
-							Team 2
-						</div>
+				<article>
+					<h2>Pool A</h2>
+				</article>
+				<div id="top-row">
+					<div class="top-column-33">
+						Team 1
 					</div>
-					{{#each objects}}
-					<div class="inter-row">
+					<div class="top-column-33">
+						Results
+					</div>
+					<div class="top-column-33">
+						Team 2
+					</div>
+				</div>
+				{{#each objects}}
+					<div class="inter-row" onClick="App.GameScoreController.renderGame('{{id}}');">
 						{{start_time}}
 					</div>
 					<div class="row">
@@ -101,7 +101,7 @@
 							{{/with}}
 						</div>
 					</div>
-					{{/each}}
+				{{/each}}
 			</section>
 		</script>
 
@@ -120,7 +120,12 @@
 						</h2>
 					</article>
 					<article>
-						{{team_1_score}} - {{team_2_score}}
+						<form>
+							<input type="number" id="team1Score" value="{{team_1_score}}">
+							<input type="number" id="team2Score" value="{{team_2_score}}">
+							<input type="checkbox" id="isFinal">Is final?</input>
+							<a href="javascript:App.GameScoreController.updateGame('{{id}}');">Submit</a>
+						</form>
 					</article>
 			</section>
 		</script>
@@ -168,7 +173,31 @@
 			</section>
 		</script>
 
-		<!-- include vendors -->
+		<!-- include vendors
+
+		/*	qwest.post('https://api.leaguevine.com/v1/game_scores/', {
+				game_id: '129763',
+				team_1_score: '12',
+				team_2_score: '12',
+				is_final: 'True'
+			}, {}, function(){
+				this.setRequestHeader('Content-type', 'application/json');
+				this.setRequestHeader('Authorization', 'bearer a50e9433dd');
+			})
+			.success(function (data){
+
+				App.Template.render('page-gamescore', data);
+			
+			})
+			.error(function (message){
+				console.log(this.responseText);
+				throw message;
+			});
+
+		}*/
+
+
+		 -->
 		<script src="scripts/vendor/routie.js"></script>
 		<script src="scripts/vendor/handlebars.js"></script>
 		<script src="scripts/vendor/microajax.minified.js"></script>

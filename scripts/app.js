@@ -15,13 +15,10 @@
 
 			routie({
 				'/schedule': function() {
-					App.ScheduleController.index();
+					App.ScheduleController.getGames();
 				},
 				'/ranking': function() {
 					App.RankingController.index();
-				},
-				'/id': function() {
-					App.GameScoreController.index();
 				},
 				'/': function() {
 					App.renderPage();

@@ -1,12 +1,29 @@
+@charset "utf-8";
 * {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+html {
+	background: #eee;
 }
 body {
+	opacity: 1;
 	background: #F1F1F1;
 	color: #999;
 	font-size: 18px;
 	line-height: 180%;
 	font-family: "proxnova-light", Helvetica, Arial, sans-serif, system;
+}
+body.loading {
+	opacity: .5;
+	-webkit-transition: opacity 3s;
+	-moz-transition: opacity 3s;
+	-ms-transition: opacity 3s;
+	-o-transition: opacity 3s;
+	transition: opacity 3s;
 }
 h1 {
 	color: #555;
@@ -102,29 +119,17 @@ section {
 	box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
 }
 section header {
-	background: #EEE;
-	color: #FFF;
+	background: #59d481;
+	color: #fff;
 	font-size: 38px;
 	text-shadow: 0 2px 8px rgba(0,0,0,.33);
 	height: auto;
-	padding: 70% 5% 5% 5%;
+	padding: 10% 5% 5% 5%;
 	text-align: left;
 	font-family: "gotham-htf-medium", Helvetica, Arial, sans-serif, system;
 	border-bottom: 1px solid #DDD;
 	border-top: none;
 	line-height: none;
-}
-#home, #schedule, #rankings {
-	background-size: 100% 100%;
-}
-#home {
-	background: #BBB url('../images/home-background.jpg') 35% 30% no-repeat;
-}
-#schedule {
-	background: #BBB url('../images/schedule-background.jpg') center center no-repeat;
-}
-#rankings {
-	background: #BBB url('../images/rankings-background.jpg') center center no-repeat;
 }
 article {
 	width: 100%;
@@ -198,6 +203,13 @@ article ol {
 .video {
 	width: 100%;
 	height: 200px;
+}
+form input[type='number']{
+	padding: 10px;
+	width: 30%;
+}
+form input[type='checkbox']{
+	margin: 0 7px;
 }
 /* Include fonts */
 @font-face {
