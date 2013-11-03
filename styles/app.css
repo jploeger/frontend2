@@ -86,10 +86,6 @@ button {
 	font-size: 20px;
 	font-family: "gotham-htf-medium", Helvetica, Arial, sans-serif, system;
 }
-.submit a:hover {
-	color: #FFF;
-	color: rgb(255,255,255,0.5);
-}
 /* Structure */
 #main-nav {
 	width: 100%;
