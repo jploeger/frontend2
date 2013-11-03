@@ -9,7 +9,7 @@
 	</head>
 	<body id="body">
 
-		<header>
+		<header id="main-nav">
 			<a href="#/">Windmill Windup 2013</a>
 		</header>
 
@@ -29,7 +29,7 @@
 				<header id="home">
 					About Windmill Windup
 				</header>
-				<article>
+				<article id="main-article">
 					<p>
 						The Windmill Windup is a yearly ultimate frisbee tournament held in Amsterdam, comprised of three divisions of play (open, women&apos;s and mixed). The three day event is loaded with ultimate frisbee action and off the field antics, resulting in an unforgettable weekend of intense sport and constant fun.
 					</p>
@@ -75,7 +75,7 @@
 					Schedule
 				</header>
 				<article>
-					<h2>Pool {{name}}</h2>
+					<h2>Pool {{objects.0.pool.name}}</h2>
 				</article>
 				<div id="top-row">
 					<div class="top-column-33">
@@ -125,7 +125,7 @@
 						</h2>
 					</article>
 					<article>
-						<form>
+						<form id="score">
 							<input type="number" id="team1Score" value="{{team_1_score}}">
 							<input type="number" id="team2Score" value="{{team_2_score}}">
 							<input type="checkbox" id="isFinal" class="checkbox"><label for="isFinal">Is final score?</label></input>
