@@ -69,7 +69,7 @@
 			</section>
 		</script>
 
-		<script id="page-schedule" type="text/x-handlebars-template">
+		<script id="page-pool" type="text/x-handlebars-template">
 			<section>
 				<header id="schedule">
 					Schedule
@@ -89,10 +89,7 @@
 					</div>
 				</div>
 				{{#each objects}}
-					<div onClick="App.GameScoreController.renderGame('{{id}}');">
-						<div class="inter-row">
-							{{start_time}}
-						</div>
+					<a href="#/game/{{id}}">
 						<div class="row">
 							<div class="column-33">
 								{{#with team_1}}
@@ -108,12 +105,12 @@
 								{{/with}}
 							</div>
 						</div>
-					</div>
+					</a>
 				{{/each}}
 			</section>
 		</script>
 
-		<script id="page-gamescore" type="text/x-handlebars-template">
+		<script id="page-game" type="text/x-handlebars-template">
 			<section>
 				<header id="schedule">
 					Game score
@@ -132,7 +129,7 @@
 							<input type="number" id="team1Score" value="{{team_1_score}}">
 							<input type="number" id="team2Score" value="{{team_2_score}}">
 							<input type="checkbox" id="isFinal" class="checkbox"><label for="isFinal">Is final score?</label></input>
-							<button class="submit"><a href="javascript:App.GameScoreController.updateGame('{{id}}');">Submit</a></button>
+							<button class="submit"><a href="javascript:App.GameController.updateGame('{{id}}');">Submit</a></button>
 						</form>
 					</article>
 			</section>
@@ -144,9 +141,11 @@
 					Pools
 				</header>
 				{{#each objects}}
-				<article class="main-article" onClick="App.ScheduleController.getGames('{{id}}');">
-					<h2>Pool {{name}}</h2>
-				</article>
+				<a href="#/pool/{{id}}">
+					<article class="main-article">
+						<h2>Pool {{name}}</h2>
+					</article>
+				</a>
 				{{/each}}
 			</section>
 		</script>
@@ -170,7 +169,7 @@
 							</div>
 							<div class="top-column-20">
 								Win
-							</div>
+							</div> 	
 							<div class="top-column-20">
 								Loss
 							</div>
@@ -198,31 +197,7 @@
 			</section>
 		</script>
 
-		<!-- include vendors
-
-		/*	qwest.post('https://api.leaguevine.com/v1/game_scores/', {
-				game_id: '129763',
-				team_1_score: '12',
-				team_2_score: '12',
-				is_final: 'True'
-			}, {}, function(){
-				this.setRequestHeader('Content-type', 'application/json');
-				this.setRequestHeader('Authorization', 'bearer a50e9433dd');
-			})
-			.success(function (data){
-
-				App.Template.render('page-gamescore', data);
-			
-			})
-			.error(function (message){
-				console.log(this.responseText);
-				throw message;
-			});
-
-		}*/
-
-
-		 -->
+		<!-- include vendors -->
 		<script src="scripts/vendor/routie.js"></script>
 		<script src="scripts/vendor/handlebars.js"></script>
 		<script src="scripts/vendor/microajax.minified.js"></script>
@@ -231,9 +206,10 @@
 		<!-- include scripts -->
 		<script src="scripts/app.js"></script>
 		<script src="scripts/template.js"></script>
-		<script src="scripts/schedulecontroller.js"></script>
 		<script src="scripts/rankingcontroller.js"></script>
-		<script src="scripts/gamescorecontroller.js"></script>
+		<script src="scripts/gamecontroller.js"></script>
+		<script src="scripts/poolcontroller.js"></script>
+		<script src="scripts/poolscontroller.js"></script>
 		
 	</body>
 </html>

@@ -14,11 +14,14 @@
 		init: function() {
 
 			routie({
-				'/schedule': function() {
-					App.ScheduleController.getGames();
-				},
 				'/pools': function() {
-					App.ScheduleController.getPools();
+					App.PoolsController.index();
+				},
+				'/pool/:id': function( poolId ) {
+					App.PoolController.index(poolId);
+				},
+				'/game/:id': function( gameId ) {
+					App.GameController.index(gameId);
 				},
 				'/ranking': function() {
 					App.RankingController.index();

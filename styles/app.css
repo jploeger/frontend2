@@ -17,7 +17,24 @@ body {
 	line-height: 180%;
 	font-family: "proxnova-light", Helvetica, Arial, sans-serif, system;
 }
-body.loading {
+body.loading{
+	opacity: .5;
+	-webkit-transition: opacity 3s;
+	-moz-transition: opacity 3s;
+	-ms-transition: opacity 3s;
+	-o-transition: opacity 3s;
+	transition: opacity 3s;
+}
+body.update {
+	background: #59d481;
+	opacity: 1;
+	-webkit-transition: opacity 3s;
+	-moz-transition: opacity 3s;
+	-ms-transition: opacity 3s;
+	-o-transition: opacity 3s;
+	transition: opacity 3s;
+}
+body.update > * {
 	opacity: .5;
 	-webkit-transition: opacity 3s;
 	-moz-transition: opacity 3s;

@@ -4,7 +4,7 @@ var App = App || {};
 	
 	'use strict';
 
-	var RankingController = {
+	var PoolsController = {
 
 		index: function() {
 
@@ -16,19 +16,21 @@ var App = App || {};
 				document.getElementById('body').classList.add("loading");				
 
 			})
-			.success(function (data){
+			.success(function ( data ) {
 
+				//	Reverse get results
 				data.objects.reverse();
 
-				App.Template.render('page-ranking', data);
+				App.Template.render('page-pools', data);
 
-				document.getElementById('body').classList.remove("loading");	
+				document.getElementById('body').classList.remove("loading");
 
 			});
 
 		}
+
 	};
 
-	exports.RankingController = RankingController;
+	exports.PoolsController = PoolsController;
 
 })(App);
