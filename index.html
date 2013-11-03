@@ -74,7 +74,7 @@
 				<header id="schedule">
 					Schedule
 				</header>
-				<article>
+				<article class="pools">
 					<h2>Pool {{objects.0.pool.name}}</h2>
 				</article>
 				<div id="top-row">
@@ -115,10 +115,10 @@
 				<header id="schedule">
 					Game score
 				</header>
-					<article>
+					<article id="teams">
 						<h2>{{#with team_1}}
 								{{name}}
-							{{/with}} vs
+							{{/with}} <span>vs</span>
 							{{#with team_2}}
 								{{name}}
 							{{/with}}
@@ -142,7 +142,7 @@
 				</header>
 				{{#each objects}}
 				<a href="#/pool/{{id}}">
-					<article class="main-article">
+					<article class="pools">
 						<h2>Pool {{name}}</h2>
 					</article>
 				</a>
@@ -157,7 +157,7 @@
 				</header>
 				<article>
 					{{#each objects}}
-						<header>
+						<header class="pools">
 							<h2>Pool {{name}}</h2>
 						</header>
 						<div id="top-row">
