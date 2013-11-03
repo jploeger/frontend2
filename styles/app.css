@@ -10,31 +10,14 @@ html {
 	background: #eee;
 }
 body {
-	opacity: 1;
 	background: #F1F1F1;
 	color: #999;
 	font-size: 18px;
-	line-height: 180%;
 	font-family: "proxnova-light", Helvetica, Arial, sans-serif, system;
-}
-body.loading{
-	opacity: .5;
-	-webkit-transition: opacity 3s;
-	-moz-transition: opacity 3s;
-	-ms-transition: opacity 3s;
-	-o-transition: opacity 3s;
-	transition: opacity 3s;
-}
-body.update {
-	background: #59d481;
+	line-height: 180%;
 	opacity: 1;
-	-webkit-transition: opacity 3s;
-	-moz-transition: opacity 3s;
-	-ms-transition: opacity 3s;
-	-o-transition: opacity 3s;
-	transition: opacity 3s;
 }
-body.update > * {
+body.loading {
 	opacity: .5;
 	-webkit-transition: opacity 3s;
 	-moz-transition: opacity 3s;
