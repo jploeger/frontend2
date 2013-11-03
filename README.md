@@ -17,7 +17,7 @@ Routie: <a href="http://projects.jga.me/routie/">routie.js</a><br />
 
 Use strict
 
-App.js
+app.js
 ------
 
 ### var App
@@ -31,13 +31,11 @@ App.js
 exports.App = App
 
 
-schedulecontroller.js
----------------------
+poolscontroller.js
+-----------------
 
-### var ScheduleController
+### var PoolsController
 
-> getPools function
->
 > qwest.get (pools)
 >
 > success function
@@ -47,15 +45,31 @@ schedulecontroller.js
 > qwest.get (games)
 >
 > success function
+>
+> reverse get results
 
-exports.ScheduleController = ScheduleController
+exports.PoolsController = PoolsController
 
 
-gamescorecontroller.js
-----------------------
+poolcontroller.js
+------------------
 
-### var GameScoreController
+### var PoolController
 
+> qwest.get (pool by ID)
+>
+> success function
+
+exports.PoolController = PoolController
+
+
+gamecontroller.js
+-----------------
+
+### var GameController
+
+> qwest.get (game by ID)
+>
 > updateGame function
 >
 > var team1Score
@@ -70,9 +84,7 @@ gamescorecontroller.js
 
 ### renderGame function
 
-> qwest.get (gameID)
-
-exports.GameScoreController = GameScoreController
+exports.GameController = GameController
 
 
 rankingcontroller.js
