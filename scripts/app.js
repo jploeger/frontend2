@@ -6,13 +6,6 @@
 		
 		ACCESS_TOKEN: 'acfa228f8c',
 
-		renderPage: function(title, body) {
-			App.Template.render('page-general', {
-				title: title,
-				body: body
-			});
-		},
-
 		init: function() {
 
 			routie({
@@ -29,10 +22,10 @@
 					App.RankingController.index();
 				},
 				'/': function() {
-					App.renderPage();
+					App.Template.render('page-home');
 				},
 				'*': function() {
-					App.renderPage('404!', 'This page has not been found.');
+					App.Template.render('four-o-four');
 				}
 			});
 
