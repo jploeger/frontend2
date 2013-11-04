@@ -8,22 +8,26 @@ var App = App || {};
 
 		index: function() {
 
-			qwest.get('https://api.leaguevine.com/v1/pools/', {
-				tournament_id: App.TOURNAMENT_ID,
-				access_token: App.ACCESS_TOKEN
-			}, {}, function () {
 
-				App.startLoading();
+			App.startLoading();
 
-			})
-			.success(function (data){
+			reqwest({
 
+				url: 'https://api.leaguevine.com/v1/pools/',
+				type: 'json',
+				data: {
+					tournament_id: App.TOURNAMENT_ID,
+					access_token: App.ACCESS_TOKEN
+				}
+
+			}).then(function ( data ) {
+
+				// Reverse list of results
 				data.objects.reverse();
 
 				App.Template.render('page-ranking', data);
 
-			})
-			.complete(App.stopLoading);
+			}).always(App.stopLoading);
 
 		}
 	};
