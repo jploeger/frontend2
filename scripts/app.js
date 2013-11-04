@@ -29,6 +29,18 @@
 				}
 			});
 
+		},
+
+		startLoading: function() {
+
+			document.getElementById('body').classList.add('update');
+
+		},
+
+		stopLoading: function() {
+
+			document.getElementById('body').classList.remove('update');
+
 		}
 
 	};

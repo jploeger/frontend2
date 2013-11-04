@@ -14,19 +14,18 @@ var App = App || {};
 				access_token: App.ACCESS_TOKEN
 			}, {}, function () {
 
-				document.getElementById('body').classList.add("loading");				
+				App.startLoading();			
 
 			})
 			.success(function ( data ) {
 
-				//	Reverse get results
+				// Reverse list of results
 				data.objects.reverse();
 
 				App.Template.render('page-pool', data);
 
-				document.getElementById('body').classList.remove("loading");	
-
-			});
+			})
+			.complete(App.stopLoading);
 
 		}
 
