@@ -9,6 +9,9 @@
 		init: function() {
 
 			routie({
+				'': function() {
+					App.Template.render('page-home');
+				},
 				'/pools': function() {
 					App.PoolsController.index();
 				},
@@ -21,15 +24,13 @@
 				'/ranking': function() {
 					App.RankingController.index();
 				},
-				'/': function() {
-					App.Template.render('page-home');
-				},
-				'*': function() {
-					App.Template.render('four-o-four');
+				'/*': function() {
+					App.Template.render('page-404');
 				}
 			});
 
 		}
+
 	};
 
 	exports.App = App;
