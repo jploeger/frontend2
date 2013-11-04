@@ -10,11 +10,15 @@ var App = App || {};
 
 			qwest.get('https://api.leaguevine.com/v1/games/'+gameID+'/', {
 				access_token: App.ACCESS_TOKEN
+			}, {}, function() {
+
+				App.startLoading();	
+
 			}).success(function ( data ) {
 
 				App.Template.render('page-game', data);
 
-			});
+			}).complete(App.stopLoading);
 
 		},
 
