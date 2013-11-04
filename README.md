@@ -11,7 +11,7 @@ A web base application structure, containing:
 
 Handlebars: <a href="https://github.com/wycats/handlebars.js/">handlebars.js</a><br />
 
-Simple ajax library: <a href="https://github.com/pyrsmk/qwest">qwest-0.4.2.min.js</a><br />
+Reqwest (AJAX library): <a href="https://github.com/ded/reqwest">reqwest</a><br />
 
 Routie: <a href="http://projects.jga.me/routie/">routie.js</a><br />
 
