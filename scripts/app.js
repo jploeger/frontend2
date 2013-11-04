@@ -34,6 +34,9 @@
 				}
 			});
 
+			//	Hook.js pull-to-refresh
+			$('#body').hook({reloadPage: true});
+
 		}
 	};
 
