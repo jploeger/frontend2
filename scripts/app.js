@@ -5,6 +5,7 @@
 	var App = {
 		
 		ACCESS_TOKEN: 'acfa228f8c',
+		TOURNAMENT_ID: 19389,
 
 		init: function() {
 

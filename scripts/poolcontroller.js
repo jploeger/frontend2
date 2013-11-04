@@ -10,7 +10,7 @@ var App = App || {};
 
 			qwest.get('https://api.leaguevine.com/v1/games/', {
 				pool_id: poolId,
-				tournament_id: 19389,
+				tournament_id: App.TOURNAMENT_ID,
 				access_token: App.ACCESS_TOKEN
 			}, {}, function () {
 
