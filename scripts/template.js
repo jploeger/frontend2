@@ -6,21 +6,16 @@ var App = App || {};
 
 	var Template = {
 
-		render: function(templateId, context){
+		render: function( templateId, context ) {
 
-			var source = document.getElementById(templateId).textContent;
+			var source = document.getElementById(templateId).textContent,
+			    template = Handlebars.compile(source),
+			    html = template(context || {}),
+			    content = document.getElementById('content');
 
-			// Maak een functie aan om later uit te voeren
-			var template = Handlebars.compile(source);
-
-			// Voer functie uit met context als argument (data renderen)
-
-			var html = template(context);
-
-			// Element content uit de DOM
-			var content = document.getElementById('content');
 			content.innerHTML = html;
 		}
+
 	};
 
 	exports.Template = Template;
