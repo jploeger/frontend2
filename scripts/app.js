@@ -3,7 +3,7 @@
 	'use strict';
 
 	var App = {
-		
+
 		renderPage: function(title, body) {
 			App.Template.render('page-general', {
 				title: title,
