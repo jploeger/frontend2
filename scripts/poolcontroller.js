@@ -6,27 +6,28 @@ var App = App || {};
 
 	var PoolController = {
 
-		index: function(poolId) {
+		index: function( poolId ) {
 
-			qwest.get('https://api.leaguevine.com/v1/games/', {
-				pool_id: poolId,
-				tournament_id: 19389,
-				access_token: '331a3c6ea7'
-			}, {}, function () {
+			App.startLoading();
 
-				document.getElementById('content').classList.add("loading");				
+			reqwest({
 
-			})
-			.success(function ( data ) {
+				url: 'https://api.leaguevine.com/v1/games/',
+				type: 'json',
+				data: {
+					pool_id: poolId,
+					tournament_id: App.TOURNAMENT_ID,
+					access_token: App.ACCESS_TOKEN
+				}
 
-				//	Reverse get results
+			}).then(function ( data ) {
+
+				// Reverse list of results
 				data.objects.reverse();
 
 				App.Template.render('page-pool', data);
 
-				document.getElementById('content').classList.remove("loading");	
-
-			});
+			}).always(App.stopLoading);
 
 		}
 

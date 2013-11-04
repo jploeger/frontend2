@@ -6,58 +6,52 @@ var App = App || {};
 
 	var GameController = {
 
-		index: function(gameID) {
+		index: function( gameId ) {
 
-			qwest.get('https://api.leaguevine.com/v1/games/'+gameID+'/', {
-				access_token: 'acfa228f8c'
-			}).success(function ( data ) {
+			App.startLoading();
+
+			reqwest({
+
+				url: 'https://api.leaguevine.com/v1/games/' + gameId + '/',
+				type: 'json',
+				data: {
+					access_token: App.ACCESS_TOKEN
+				}
+
+			}).then(function ( data ) {
 
 				App.Template.render('page-game', data);
 
-			});
+			}).always(App.stopLoading);
 
 		},
 
-		updateGame: function(gameID) {
+		updateGame: function( gameId ) {
 
 			var	team1Score = document.getElementById('team1Score').value;
 			var team2Score = document.getElementById('team2Score').value;
 			var isFinal = document.getElementById('isFinal').value;
 
-			var type = 'POST',
-				url = 'https://api.leaguevine.com/v1/game_scores/',
-				postData = JSON.stringify({
-					game_id: gameID,
+			App.startLoading();
+
+			reqwest({
+
+				url: 'https://api.leaguevine.com/v1/game_scores/',
+				type: 'json',
+				method: 'post',
+				contentType: 'application/json',
+				headers: {
+					'Authorization': 'bearer a50e9433dd'
+				},
+				processData: false,
+				data: JSON.stringify({
+					game_id: gameId,
 					team_1_score: team1Score,
 					team_2_score: team2Score,
 					is_final: isFinal
-				});
+				})
 
-			// Create request
-			var xhr = new XMLHttpRequest();
-
-			// Open request
-			xhr.open(type, url, true);
-
-			// Set request headers, including authorisation
-			xhr.setRequestHeader('Content-type', 'application/json');
-			xhr.setRequestHeader('Authorization', 'bearer a50e9433dd');
-
-			// Send request
-			xhr.send(postData);
-
-			//	Re-render game page (server too slow to update from server after writing)
-			//	App.GameController.renderGame(gameID);
-
-			//	Update animation
-
-			document.getElementById('content').classList.add("update");	
-
-			window.setInterval( function(){
-
-				document.getElementById('content').classList.remove("update");		
-
-			}, 2000);
+			}).always(App.stopLoading);
 
 		}
 

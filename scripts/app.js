@@ -4,16 +4,15 @@
 
 	var App = {
 		
-		renderPage: function(title, body) {
-			App.Template.render('page-general', {
-				title: title,
-				body: body
-			});
-		},
+		ACCESS_TOKEN: 'acfa228f8c',
+		TOURNAMENT_ID: 19389,
 
 		init: function() {
 
 			routie({
+				'': function() {
+					App.Template.render('page-home');
+				},
 				'/pools': function() {
 					App.PoolsController.index();
 				},
@@ -26,24 +25,29 @@
 				'/ranking': function() {
 					App.RankingController.index();
 				},
-				'/': function() {
-					App.renderPage();
-				},
-				'*': function() {
-					App.renderPage('404!', 'This page has not been found.');
+				'/*': function() {
+					App.Template.render('page-404');
 				}
 			});
 
-			//	Hook.js pull-to-refresh
-			$('#body').hook({reloadPage: true});
+		},
+
+		startLoading: function() {
+
+			document.getElementById('body').classList.add('loading');
+
+		},
+
+		stopLoading: function() {
+
+			document.getElementById('body').classList.remove('loading');
 
 		}
+
 	};
 
 	exports.App = App;
 
-	window.addEventListener('DOMContentLoaded', function() {
-		App.init();
-	});
+	window.addEventListener('DOMContentLoaded', App.init);
 
 })(window);

@@ -24,7 +24,20 @@
 		<div id="content">
 		</div>
 
-		<script id="page-general" type="text/x-handlebars-template">
+		<script id="page-404" type="text/x-handlebars-template">
+			<section>
+				<header id="home">
+					404, page not found!
+				</header>
+				<article id="main-article">
+					<p>
+						Unfortunatley we couldn&apos;t find the page you where looking for.
+					</p>
+				</article>
+			</section>
+		</script>
+
+		<script id="page-home" type="text/x-handlebars-template">
 			<section>
 				<header id="home">
 					About Windmill Windup
@@ -69,6 +82,21 @@
 			</section>
 		</script>
 
+		<script id="page-pools" type="text/x-handlebars-template">
+			<section>
+				<header id="pools">
+					Pools
+				</header>
+				{{#each objects}}
+				<a href="#/pool/{{id}}">
+					<article class="pools">
+						<h2>Pool {{name}}</h2>
+					</article>
+				</a>
+				{{/each}}
+			</section>
+		</script>
+
 		<script id="page-pool" type="text/x-handlebars-template">
 			<section>
 				<header id="schedule">
@@ -92,17 +120,13 @@
 					<a href="#/game/{{id}}">
 						<div class="row">
 							<div class="column-33">
-								{{#with team_1}}
-									{{name}}
-								{{/with}}
+								{{team_1.name}}
 							</div>
 							<div class="column-33">
 								{{team_1_score}} - {{team_2_score}}
 							</div>
 							<div class="column-33">
-								{{#with team_2}}
-									{{name}}
-								{{/with}}
+								{{team_2.name}}
 							</div>
 						</div>
 					</a>
@@ -116,13 +140,7 @@
 					Game score
 				</header>
 					<article id="teams">
-						<h2>{{#with team_1}}
-								{{name}}
-							{{/with}} <span>vs</span>
-							{{#with team_2}}
-								{{name}}
-							{{/with}}
-						</h2>
+						<h2>{{team_1.name}} <span>vs</span> {{team_2.name}}</h2>
 					</article>
 					<article>
 						<form id="score">
@@ -132,21 +150,6 @@
 							<button class="submit"><a href="javascript:App.GameController.updateGame('{{id}}');">Submit</a></button>
 						</form>
 					</article>
-			</section>
-		</script>
-
-		<script id="page-pools" type="text/x-handlebars-template">
-			<section>
-				<header id="pools">
-					Pools
-				</header>
-				{{#each objects}}
-				<a href="#/pool/{{id}}">
-					<article class="pools">
-						<h2>Pool {{name}}</h2>
-					</article>
-				</a>
-				{{/each}}
 			</section>
 		</script>
 
@@ -177,9 +180,7 @@
 						{{#each standings}}
 							<div class="row">
 								<div class="column-40">
-									{{#with team}}
-										{{name}}
-									{{/with}}
+									{{team.name}}
 								</div>
 								<div class="column-20">
 									{{games_played}}
@@ -197,12 +198,10 @@
 			</section>
 		</script>
 
-		<!-- include vendors -->
+		<!-- include libraries -->
 		<script src="scripts/vendor/routie.js"></script>
 		<script src="scripts/vendor/handlebars.js"></script>
-		<script src="scripts/vendor/mousewheel.js"></script>
-		<script src="scripts/vendor/hook.min.js"></script>
-		<script src="scripts/vendor/qwest-0.4.2.min.js"></script>
+		<script src="scripts/vendor/reqwest.js"></script>
 
 		<!-- include scripts -->
 		<script src="scripts/app.js"></script>
