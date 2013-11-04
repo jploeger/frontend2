@@ -48,8 +48,6 @@
 
 	exports.App = App;
 
-	window.addEventListener('DOMContentLoaded', function() {
-		App.init();
-	});
+	window.addEventListener('DOMContentLoaded', App.init);
 
 })(window);
