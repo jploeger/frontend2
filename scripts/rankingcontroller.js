@@ -13,7 +13,7 @@ var App = App || {};
 				access_token: '331a3c6ea7'
 			}, {}, function () {
 
-				document.getElementById('body').classList.add("loading");				
+				document.getElementById('content').classList.add("loading");				
 
 			})
 			.success(function (data){
@@ -22,7 +22,7 @@ var App = App || {};
 
 				App.Template.render('page-ranking', data);
 
-				document.getElementById('body').classList.remove("loading");	
+				document.getElementById('content').classList.remove("loading");	
 
 			});
 

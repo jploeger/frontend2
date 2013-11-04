@@ -51,11 +51,11 @@ var App = App || {};
 
 			//	Update animation
 
-			document.getElementById('body').classList.add("update");	
+			document.getElementById('content').classList.add("update");	
 
 			window.setInterval( function(){
 
-				document.getElementById('body').classList.remove("update");		
+				document.getElementById('content').classList.remove("update");		
 
 			}, 2000);
 
