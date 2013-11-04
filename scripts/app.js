@@ -37,13 +37,13 @@
 
 		startLoading: function() {
 
-			document.getElementById('body').classList.add('update');
+			document.getElementById('body').classList.add('loading');
 
 		},
 
 		stopLoading: function() {
 
-			document.getElementById('body').classList.remove('update');
+			document.getElementById('body').classList.remove('loading');
 
 		}
 

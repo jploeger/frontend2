@@ -8,7 +8,6 @@ var App = App || {};
 
 		index: function() {
 
-
 			App.startLoading();
 
 			reqwest({
