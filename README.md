@@ -15,7 +15,7 @@ Simple ajax library: <a href="https://github.com/pyrsmk/qwest">qwest-0.4.2.min.j
 
 Routie: <a href="http://projects.jga.me/routie/">routie.js</a><br />
 
-Hook.js <a href="https://github.com/jordansinger/hook.js/">Hook.js on GitHub</a><br />
+Hook.js w/ Mousewheel.js <a href="https://github.com/jordansinger/hook.js/">Hook.js on GitHub</a><br />
 
 Use strict
 
