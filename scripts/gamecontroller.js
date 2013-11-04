@@ -9,7 +9,7 @@ var App = App || {};
 		index: function(gameID) {
 
 			qwest.get('https://api.leaguevine.com/v1/games/'+gameID+'/', {
-				access_token: 'acfa228f8c'
+				access_token: App.ACCESS_TOKEN
 			}).success(function ( data ) {
 
 				App.Template.render('page-game', data);

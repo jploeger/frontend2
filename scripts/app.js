@@ -3,6 +3,8 @@
 	'use strict';
 
 	var App = {
+		
+		ACCESS_TOKEN = 'acfa228f8c',
 
 		renderPage: function(title, body) {
 			App.Template.render('page-general', {
